@@ -1,3 +1,4 @@
+//Business logic
 function Ticket(movie, time, age){
   this.movie = movie;
   this.time = time;
@@ -11,9 +12,9 @@ Ticket.prototype.ticketPrice = function(inputtedTime, inputtedAge){
   if (inputtedTime > 2) {
       price += 3;
   }
-}
+};
+//User interface logic
 $(document).ready(function() {
-
   $("form").submit(function(event) {
     event.preventDefault();
     var inputtedMovie= $("#first").val();
@@ -22,10 +23,7 @@ $(document).ready(function() {
     var myTicket = new Ticket(inputtedMovie, inputtedTime, inputtedAge);
     $("input#time").val("");
     $("input#age").val("");
-
     myTicket.ticketPrice(inputtedTime, inputtedAge);
     console.log(price);
-
-
   });
 });
